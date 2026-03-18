@@ -7,8 +7,8 @@
     "start": "node dist/index.js",
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts",
     "test": "jest --coverage",
-    "test:unit": "jest tests/units --coverage",
-    "test:int": "jest tests/integration --coverage",
+    "test:unit": "jest tests/unit --coverage --collectCoverageFrom='src/rules/**/*.ts' --collectCoverageFrom='src/services/**/*.ts'",
+    "test:int": "jest tests/integration --coverage --collectCoverageFrom='src/controllers/**/*.ts' --collectCoverageFrom='src/routes/**/*.ts' --collectCoverageFrom='src/app.ts'",
     "test:watch": "jest --watchAll",
     "build": "rm -rf dist && babel src --out-dir dist --extensions \".ts,.js\""
   },

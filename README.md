@@ -55,7 +55,7 @@ git clone git@github.com:Keyeight/password-validation-api-challenge.git
 2. **Acesse a pasta**:
 
 ```bash
-cd password-validator-api
+cd password-validation-api-challenge
 ```
 
 3. **Configure o ambiente (.env)**:
@@ -69,7 +69,7 @@ NODE_ENV=development
 ### 🐳 Executando com Docker
 
 ```bash
-docker-compose up --build
+docker-compose up
 ```
 <small>A API estará disponível em http://localhost:8080</small>
 
@@ -81,17 +81,17 @@ npm run dev
 ```
 ### 🧪 Testes Unitários e Integração
 
-A aplicação foi desenvolvida focando em **100% de cobertura de código**, garantindo que todas as regras de negócio e fluxos de exceção sejam validados.
+A aplicação foi desenvolvida focando em 100% de cobertura de código para garantir máxima confiabilidade. Embora o critério mínimo de aceitação seja de 90% para todas as métricas (branches, lines, etc.), assegurei que todas as regras de negócio e fluxos da API fossem rigorosamente validados.
 
 - **Testes de Unidade**: Validam cada regra isoladamente e o comportamento do service.
 - **Testes de Integração**: Validam o fluxo completo (Request -> Controller -> Service -> Response).
 
-![coverage tests](./src/docs/image.png)
+![coverage tests](./docs/image.png)
 
 Comandos: 
 
 ```bash
-npm run test        #Executa todos os testes + Coverage
+npm run test        #Executa todos os testes e coverage
 npm run test:unit   #Executa apenas testes unitários
 npm run test:int    #Executa apenas testes de integração 
 ```
@@ -134,7 +134,7 @@ npm run test:int    #Executa apenas testes de integração
 
 Para facilitar a validação, utilize a collection do **Insomnia** (YAML) com todos os cenários pré-configurados:
 
-* 📁 [Collection de Testes (YAML)](./src/docs/insomnia-collection.yaml)
+* 📁 [Collection de Testes (YAML)](./docs/insomnia-collection.yaml)
 
 > <small>**Como baixar:** Fazer o download usando o "raw file" que o GitHub fornece. </small>
 

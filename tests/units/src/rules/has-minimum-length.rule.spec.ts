@@ -7,7 +7,7 @@ describe("HasMinimumLengthRule", () => {
     rule = new HasMinimumLengthRule();
   });
 
-  it("deve retornar isValid como true quando a senha tem exatamente 9 caracteres", () => {
+  it("It should return isValid as true when the password has exactly 9 characters", () => {
     const password = "123456789";
 
     const result = rule.validate(password);
@@ -15,7 +15,7 @@ describe("HasMinimumLengthRule", () => {
     expect(result.isValid).toBe(true);
   });
 
-  it("deve retornar isValid como true quando a senha tem mais de 9 caracteres", () => {
+  it("It should return isValid as true when the password has more than 9 characters", () => {
     const password = "uma-senha-bem-longa-123";
 
     const result = rule.validate(password);
@@ -23,7 +23,7 @@ describe("HasMinimumLengthRule", () => {
     expect(result.isValid).toBe(true);
   });
 
-  it("deve retornar isValid como false quando a senha tem menos de 9 caracteres (ex: 8)", () => {
+  it("isValid should return false when the password has fewer than 9 characters", () => {
     const password = "12345678";
 
     const result = rule.validate(password);
@@ -32,7 +32,7 @@ describe("HasMinimumLengthRule", () => {
     expect(result.message).toBe("A senha deve conter no mínimo 9 caracteres.");
   });
 
-  it("deve retornar isValid como false para uma string vazia", () => {
+  it("isValid should return false for an empty string", () => {
     const password = "";
 
     const result = rule.validate(password);
@@ -41,7 +41,7 @@ describe("HasMinimumLengthRule", () => {
     expect(result.message).toBeDefined();
   });
 
-  it("deve validar corretamente senhas com espaços (contando como caracteres)", () => {
+  it("It must correctly validate passwords with spaces (counting them as characters)", () => {
     const password = "1 2 3 4 5";
 
     const result = rule.validate(password);

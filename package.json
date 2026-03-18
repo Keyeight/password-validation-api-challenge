@@ -8,7 +8,7 @@
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts",
     "test": "jest --coverage",
     "test:unit": "jest tests/units --coverage",
-    "test:int": "jest tests/integration --no-cache --forceExit",
+    "test:int": "jest tests/integration --coverage",
     "test:watch": "jest --watchAll",
     "build": "rm -rf dist && babel src --out-dir dist --extensions \".ts,.js\""
   },

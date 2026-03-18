@@ -7,7 +7,7 @@ describe("NoWhiteSpaceRule", () => {
     rule = new NoWhiteSpaceRule();
   });
 
-  it("deve retornar isValid como true quando a senha não contém espaços", () => {
+  it("It should return isValid as true when the password does not contain spaces", () => {
     const password = "SenhaSemEspacos123!";
 
     const result = rule.validate(password);
@@ -16,7 +16,7 @@ describe("NoWhiteSpaceRule", () => {
     expect(result.message).toBeUndefined();
   });
 
-  it("deve retornar isValid como false quando a senha contém espaços no meio", () => {
+  it("isValid should return false when the password contains spaces in the middle", () => {
     const password = "senha com espaço";
 
     const result = rule.validate(password);
@@ -25,7 +25,7 @@ describe("NoWhiteSpaceRule", () => {
     expect(result.message).toBe("A senha não deve conter espaços em branco.");
   });
 
-  it("deve retornar isValid como false quando a senha contém espaços no início ou fim", () => {
+  it("isValid should return false when the password contains spaces at the beginning or end", () => {
     const password = " senha";
 
     const result = rule.validate(password);
@@ -33,7 +33,7 @@ describe("NoWhiteSpaceRule", () => {
     expect(result.isValid).toBe(false);
   });
 
-  it("deve retornar isValid como false para outros tipos de caracteres em branco (tab, newline)", () => {
+  it("isValid should return false for other types of whitespace characters (tab, newline)", () => {
     const passwordTab = "senha\tcomtab";
     const passwordNewline = "senha\ncomquebra";
 
@@ -41,7 +41,7 @@ describe("NoWhiteSpaceRule", () => {
     expect(rule.validate(passwordNewline).isValid).toBe(false);
   });
 
-  it("deve retornar isValid como true para uma string vazia", () => {
+  it("should return isValid as true for an empty string", () => {
     const password = "";
 
     const result = rule.validate(password);

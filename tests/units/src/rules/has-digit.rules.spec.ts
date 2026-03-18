@@ -7,7 +7,7 @@ describe("HasDigitRule", () => {
     rule = new HasDigitRule();
   });
 
-  it("deve retornar isValid como true quando a senha contém pelo menos um dígito", () => {
+  it("It should return isValid as true when the password contains at least one digit", () => {
     const password = "abc1def";
 
     const result = rule.validate(password);
@@ -16,7 +16,7 @@ describe("HasDigitRule", () => {
     expect(result.message).toBeUndefined();
   });
 
-  it("deve retornar isValid como false e a mensagem de erro quando a senha não possui dígitos", () => {
+  it("It should return isValid as false and display an error message when the password does not contain digits", () => {
     const password = "password";
 
     const result = rule.validate(password);
@@ -25,7 +25,7 @@ describe("HasDigitRule", () => {
     expect(result.message).toBe("A senha deve conter pelo menos um dígito.");
   });
 
-  it("deve retornar isValid como true quando a senha contém apenas dígitos", () => {
+  it("It should return isValid as true when the password contains only digits", () => {
     const password = "12345";
 
     const result = rule.validate(password);
@@ -33,7 +33,7 @@ describe("HasDigitRule", () => {
     expect(result.isValid).toBe(true);
   });
 
-  it("deve retornar isValid como false quando a string estiver vazia", () => {
+  it("isValid should return false when the string is empty", () => {
     const password = "";
 
     const result = rule.validate(password);
@@ -42,7 +42,7 @@ describe("HasDigitRule", () => {
     expect(result.message).toBeDefined();
   });
 
-  it("deve retornar isValid como true quando houver caracteres especiais e dígitos", () => {
+  it("isValid should return true when there are special characters and digits", () => {
     const password = "!@#$%^&*()_1";
 
     const result = rule.validate(password);

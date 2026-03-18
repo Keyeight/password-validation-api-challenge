@@ -4,7 +4,7 @@ import { app } from "../../../../src/app";
 describe("PasswordController (Integration)", () => {
   const route = "/api/password/validate";
 
-  it("deve retornar 200 quando a senha atende a todos os critérios de segurança", async () => {
+  it("It should return 200 when the password meets all security criteria", async () => {
     const validPassword = "AbTp9!fok";
 
     const response = await request(app)
@@ -17,7 +17,7 @@ describe("PasswordController (Integration)", () => {
     });
   });
 
-  it("deve retornar 400 e a lista de erros quando a senha falha em múltiplas regras", async () => {
+  it("It should return 400 and the list of errors when the password fails on multiple rules", async () => {
     const invalidPassword = "aa";
 
     const response = await request(app)
@@ -35,7 +35,7 @@ describe("PasswordController (Integration)", () => {
     );
   });
 
-  it("deve retornar 400 se o campo password não for enviado ou não for uma string", async () => {
+  it("It should return 400 if the password field is not submitted or is not a string", async () => {
     const response = await request(app).post(route).send({ password: 12345 });
 
     expect(response.status).toBe(400);
@@ -45,8 +45,8 @@ describe("PasswordController (Integration)", () => {
     );
   });
 
-  it("deve retornar 400 para senhas que contenham espaços em branco", async () => {
-    const passwordWithSpace = "Abcd! 1234";
+  it("It should return 400 for passwords that contain spaces", async () => {
+    const passwordWithSpace = "AbTp9! fok";
 
     const response = await request(app)
       .post(route)
@@ -58,19 +58,15 @@ describe("PasswordController (Integration)", () => {
     );
   });
 
-  it("deve retornar 400 quando a senha for uma string vazia", async () => {
-    const response = await request(app)
-      .post(route)
-      .send({ password: "" });
+  it("It should return 400 when the password is an empty string", async () => {
+    const response = await request(app).post(route).send({ password: "" });
     expect(response.status).toBe(400);
     expect(response.body.isValid).toBe(false);
     expect(response.body.errors).toContain("A senha não pode ser vazia.");
   });
 
-  it("deve retornar 400 quando a senha contiver apenas espaços", async () => {
-    const response = await request(app)
-      .post(route)
-      .send({ password: "   " });
+  it("It should return 400 when the password contains only spaces", async () => {
+    const response = await request(app).post(route).send({ password: "   " });
 
     expect(response.status).toBe(400);
     expect(response.body.errors).toContain("A senha não pode ser vazia.");

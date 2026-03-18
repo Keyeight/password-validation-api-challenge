@@ -2,7 +2,7 @@ import request from "supertest";
 import { app } from "../../../src/app";
 
 describe("Password Validation Integration Tests", () => {
-  it("deve retornar 200 para uma senha que atende todos os critérios", async () => {
+  it("It should return 200 for a password that meets all the criteria", async () => {
     const response = await request(app)
       .post("/api/password/validate")
       .send({ password: "AbTp9!fok" });
@@ -11,7 +11,7 @@ describe("Password Validation Integration Tests", () => {
     expect(response.body.isValid).toBe(true);
   });
 
-  it("deve retornar 400 e os erros para uma senha fraca", async () => {
+  it("It should return 400 and errors for a weak password", async () => {
     const response = await request(app)
       .post("/api/password/validate")
       .send({ password: "123" });

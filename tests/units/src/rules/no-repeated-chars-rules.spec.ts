@@ -7,7 +7,7 @@ describe("NoRepeatedCharsRule", () => {
     rule = new NoRepeatedCharsRule();
   });
 
-  it("deve retornar isValid como true quando a senha não tem caracteres repetidos", () => {
+  it("It should return isValid as true when the password has no repeated characters", () => {
     const password = "abcde123!@";
 
     const result = rule.validate(password);
@@ -15,7 +15,7 @@ describe("NoRepeatedCharsRule", () => {
     expect(result.isValid).toBe(true);
   });
 
-  it("deve retornar isValid como false quando a senha contém caracteres repetidos", () => {
+  it("isValid should return false when the password contains repeated characters", () => {
     const password = "password";
 
     const result = rule.validate(password);
@@ -26,7 +26,7 @@ describe("NoRepeatedCharsRule", () => {
     );
   });
 
-  it("deve ser case-sensitive (tratar 'A' e 'a' como caracteres diferentes)", () => {
+  it("It should be case-sensitive (treat 'A' and 'a' as different characters)", () => {
     const password = "Aa";
 
     const result = rule.validate(password);
@@ -34,7 +34,7 @@ describe("NoRepeatedCharsRule", () => {
     expect(result.isValid).toBe(true);
   });
 
-  it("deve retornar isValid como false para números repetidos", () => {
+  it("isValid should return false for repeated numbers", () => {
     const password = "123345";
 
     const result = rule.validate(password);
@@ -42,7 +42,7 @@ describe("NoRepeatedCharsRule", () => {
     expect(result.isValid).toBe(false);
   });
 
-  it("deve retornar isValid como true para uma string vazia", () => {
+  it("should return isValid as true for an empty string", () => {
     const password = "";
 
     const result = rule.validate(password);

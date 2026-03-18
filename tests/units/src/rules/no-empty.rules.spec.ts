@@ -7,7 +7,7 @@ describe("NoEmptyRule", () => {
     rule = new NoEmptyRule();
   });
 
-  it("deve retornar isValid como true quando a senha não está vazia", () => {
+  it("It should return isValid as true when the password is not empty", () => {
     const password = "password123";
 
     const result = rule.validate(password);
@@ -16,7 +16,7 @@ describe("NoEmptyRule", () => {
     expect(result.message).toBeUndefined();
   });
 
-  it("deve retornar isValid como false quando a senha é uma string vazia", () => {
+  it("isValid should return false when the password is an empty string", () => {
     const password = "";
 
     const result = rule.validate(password);
@@ -25,7 +25,7 @@ describe("NoEmptyRule", () => {
     expect(result.message).toBe("A senha não pode ser vazia.");
   });
 
-  it("deve retornar isValid como false quando a senha contém apenas espaços (devido ao trim)", () => {
+  it("isValid should return false when the password contains only spaces", () => {
     const password = "     ";
 
     const result = rule.validate(password);
@@ -34,7 +34,7 @@ describe("NoEmptyRule", () => {
     expect(result.message).toBe("A senha não pode ser vazia.");
   });
 
-  it("deve retornar isValid como true quando a senha tem espaços mas também caracteres", () => {
+  it("It should return isValid as true when the password contains spaces but also characters", () => {
     const password = "  senha123  ";
 
     const result = rule.validate(password);

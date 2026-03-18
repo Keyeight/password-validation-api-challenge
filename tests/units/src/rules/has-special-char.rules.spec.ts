@@ -7,7 +7,7 @@ describe("HasSpecialCharRule", () => {
     rule = new HasSpecialCharRule();
   });
 
-  it("deve retornar isValid como true quando a senha contém um caractere especial da lista", () => {
+  it("It should return isValid as true when the password contains a special character from the list", () => {
     const specialChars = [
       "!",
       "@",
@@ -29,7 +29,7 @@ describe("HasSpecialCharRule", () => {
     });
   });
 
-  it("deve retornar isValid como false quando a senha não possui caracteres especiais", () => {
+  it("isValid should return false when the password does not contain special characters", () => {
     const password = "Password123";
 
     const result = rule.validate(password);
@@ -40,12 +40,12 @@ describe("HasSpecialCharRule", () => {
     );
   });
 
-  it("deve retornar isValid como false para uma string vazia", () => {
+  it("isValid should return false for an empty string", () => {
     const result = rule.validate("");
     expect(result.isValid).toBe(false);
   });
 
-  it("deve retornar isValid como false para caracteres que NÃO estão na sua lista (ex: acentos ou espaços)", () => {
+  it("It should return isValid as false for characters that are NOT in your list", () => {
     const result = rule.validate("senha com espaço");
     const result2 = rule.validate("senhaÁrea");
 
@@ -53,7 +53,7 @@ describe("HasSpecialCharRule", () => {
     expect(result2.isValid).toBe(false);
   });
 
-  it("deve retornar isValid como true para uma senha composta apenas por caracteres especiais", () => {
+  it("should return isValid as true for a password composed only of special characters", () => {
     const result = rule.validate("!@#$");
     expect(result.isValid).toBe(true);
   });

@@ -1,0 +1,304 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: validate-password-api
+meta:
+  id: wrk_3ce43763a5f744d69ddf87a014f93b8c
+  created: 1773795847518
+  modified: 1773795847518
+  description: ""
+collection:
+  - url: "{{ _[''].base_url }}/api/password/validate"
+    name: "Error: repetition"
+    meta:
+      id: req_fd9601b3f2fc46548fa418f9bdfae86a
+      created: 1773839401333
+      modified: 1773841941970
+      isPrivate: false
+      description: ""
+      sortKey: -1773839401333
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "password": "AbTp9!foo"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _[''].base_url }}/api/password/validate"
+    name: "Error: with space"
+    meta:
+      id: req_d79d1f4117b54ce4838f62db8b750dd4
+      created: 1773839467810
+      modified: 1773841910453
+      isPrivate: false
+      description: ""
+      sortKey: -1773839467811
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "password": "AbTp9 !fok"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _[''].base_url }}/api/password/validate"
+    name: "Sucess: valid password"
+    meta:
+      id: req_a559fc8958fa437db75faa95acd7af63
+      created: 1773839524340
+      modified: 1773841895621
+      isPrivate: false
+      description: ""
+      sortKey: -1773839524340
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"password": "AbTp9!fok"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _[''].base_url }}/api/password/validate"
+    name: "Error: insufficient size"
+    meta:
+      id: req_a1a43d0f2fb14cb5bb1fb0b36cb059cf
+      created: 1773839637864
+      modified: 1773841882118
+      isPrivate: false
+      description: ""
+      sortKey: -1773839637864
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        { 
+        	"password": "Ab1!" 
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _[''].base_url }}/api/password/validate"
+    name: "Error: missing uppercase"
+    meta:
+      id: req_f20d8562568d4cacacddd99cfd656094
+      created: 1773839670567
+      modified: 1773841862170
+      isPrivate: false
+      description: ""
+      sortKey: -1773839670567
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        { 
+        	"password": "abtp9!fok" 
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _[''].base_url }}/api/password/validate"
+    name: "Error: missing number"
+    meta:
+      id: req_e80603572d35415dbdfd2d83d61ccd54
+      created: 1773839820853
+      modified: 1773841827521
+      isPrivate: false
+      description: ""
+      sortKey: -1773839820853
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        { 
+        	"password": "AbTp!fokj" 
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _[''].base_url }}/api/password/validate"
+    name: "Error: missing lowercase"
+    meta:
+      id: req_86fb4ff05c584d28ba28aefbf5ed0ada
+      created: 1773839860547
+      modified: 1773841852177
+      isPrivate: false
+      description: ""
+      sortKey: -1773839860547
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        { 
+        	"password": "ABTP9!FOK" 
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _[''].base_url }}/api/password/validate"
+    name: "Error: missing special character"
+    meta:
+      id: req_0ababde5ff7b48bc9552d303808ff886
+      created: 1773839944691
+      modified: 1773841517842
+      isPrivate: false
+      description: ""
+      sortKey: -1773839944691
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        { 
+        	"password": "AbTp9fokj" 
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _[''].base_url }}/api/password/validate"
+    name: "Error: multiple failures"
+    meta:
+      id: req_f1d0b16b85ed4ce2b323d769d6976b24
+      created: 1773840025975
+      modified: 1773840872581
+      isPrivate: false
+      description: ""
+      sortKey: -1773840025975
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        { 
+        	"password": "" 
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_b10d3393a4396ee02c3782663775af03a3d2921a
+    created: 1773795847523
+    modified: 1773795847523
+environments:
+  name: Local
+  meta:
+    id: env_b10d3393a4396ee02c3782663775af03a3d2921a
+    created: 1773795847523
+    modified: 1773839114104
+    isPrivate: false
+  data:
+    "":
+      base_url: http://localhost:8080

@@ -3,7 +3,7 @@ dotenv.config();
 
 import { app } from "./app";
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 const env = process.env.NODE_ENV || "development";
 
 app.listen(port, () => {

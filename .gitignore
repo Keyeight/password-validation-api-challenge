@@ -10,7 +10,6 @@ build/
 
 # Ambiente
 .env
-.env.*
 
 # Logs
 *.log
